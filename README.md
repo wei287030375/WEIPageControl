@@ -8,7 +8,14 @@ SWIFT版自定义PageControl，椭圆，空心圆，图片点
 由于水平有限，项目中有改进之处忘各位大神给与指点，以求不断完善
 本人联系方式：wei287030375@sina.com
 
+如果觉得还可以的话给个star吧，也是对以后进行创作的一种鼓励，谢谢
+
+效果图：
+![image](https://github.com/wei287030375/WEIPageControl/blob/master/weican.PNG)
+
+
 以下是部分代码：
+
 
 class WEIPageControl: UIControl {
 
