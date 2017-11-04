@@ -39,7 +39,9 @@ class WEIPageControl: UIControl {
 在ViewController中使用
 
 //宽一点的当前点  
-       pageControl2 = WEIPageControl()//初始化PageControl
+class ViewController: UIViewController, UIScrollViewDelegate {
+
+        pageControl2 = WEIPageControl()//初始化PageControl
         pageControl2.frame = CGRect.init(x: left, y: scrollView2.frame.maxY, width: width, height: 20)
         pageControl2.numberOfPages = pageCount//总页数
         pageControl2.currentWidthMultiple = 4//当前点的宽度为其他点的4倍
@@ -47,6 +49,9 @@ class WEIPageControl: UIControl {
         pageControl2.clickPoint { (index) in//圆点的点击事件
             self.scrollView2.setContentOffset(CGPoint.init(x: width * CGFloat(index!), y: 0), animated: true)
         }
+        self.view.addSubview(scrollView2)
+        self.view.addSubview(pageControl2)
+
 
 代码就是这么简单，欢迎大家使用，
 
