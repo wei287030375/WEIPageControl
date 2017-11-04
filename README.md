@@ -2,7 +2,7 @@
 SWIFT版自定义PageControl，椭圆，空心圆，图片点
 
 刚开始做swift项目，可用资源太少了，参考一个object-C的PageControl自己做了一个swift版的，
-参考OC资源链接：https://github.com/hackxhj/EllipsePageControl，非常感谢原作者
+参考OC资源链接：https://github.com/hackxhj/EllipsePageControl， 非常感谢原作者
 本项目在原OC的功能基础上进行的改进，增加了自定义点的宽度，点的layer，不是当前点的图片等功能
 基本能满足大部分的需求，写的很简单，大家一看就懂，欢迎大家使用
 由于水平有限，项目中有改进之处忘各位大神给与指点，以求不断完善
@@ -32,7 +32,7 @@ class WEIPageControl: UIControl {
 在ViewController中使用
 
 //宽一点的当前点  
-        pageControl2 = WEIPageControl()//初始化PageControl
+       pageControl2 = WEIPageControl()//初始化PageControl
         pageControl2.frame = CGRect.init(x: left, y: scrollView2.frame.maxY, width: width, height: 20)
         pageControl2.numberOfPages = pageCount//总页数
         pageControl2.currentWidthMultiple = 4//当前点的宽度为其他点的4倍
@@ -40,9 +40,6 @@ class WEIPageControl: UIControl {
         pageControl2.clickPoint { (index) in//圆点的点击事件
             self.scrollView2.setContentOffset(CGPoint.init(x: width * CGFloat(index!), y: 0), animated: true)
         }
-        self.view.addSubview(scrollView2)
-        self.view.addSubview(pageControl2)
-
 
 代码就是这么简单，欢迎大家使用，
 
