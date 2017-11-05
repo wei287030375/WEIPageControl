@@ -4,7 +4,7 @@
 //
 //  Created by IOB on 2017/11/4.
 //  Copyright © 2017年 weican. All rights reserved.
-//  花了一天时间完成了本功能，欢迎大家使用
+//  花了一天时间完成了本功能，都是一些用法，欢迎大家使用
 //  另由于水平有限，其中必有很多改进之处，欢迎各位大神给与意见不断完善
 //  联系方式：wei287030375@sina.com
 
@@ -21,6 +21,7 @@ class WEIPageControl: UIControl {
     var localCurrentColor = UIColor()//当前点的颜色
     var localOtherImage: UIImage?//未选中点的图片
     var localCurrentImage: UIImage?//当前点的图片
+    var localIsSquare = Bool()//是否是方形点
     var localCurrentWidthMultiple = CGFloat()//当前选中点宽度与未选中点的宽度的倍数
     var localOtherBorderColor: UIColor?//未选中点的layerColor
     var localOtherBorderWidth: CGFloat?//未选中点的layer宽度
@@ -43,6 +44,7 @@ class WEIPageControl: UIControl {
         localCurrentPage = 0//默认当前页数为第一页
         localPointSize = CGSize.init(width: 6, height: 6)//默认点的宽高分别为6
         localPointSpace = 8//默认点的间距为8
+        localIsSquare = false//默认是圆点
         localOtherColor = UIColor.init(white: 1, alpha: 0.5)//默认未选中点的颜色为白色，透明度50%
         localCurrentColor = UIColor.white//默认选中点的颜色为白色
         localCurrentWidthMultiple = 1//当前选中点宽度与未选中点的宽度的倍数，默认为1倍
@@ -147,6 +149,18 @@ class WEIPageControl: UIControl {
         }
     }
 
+    var isSquare: Bool {
+        set {
+            if localIsSquare != newValue {
+                localIsSquare = newValue
+                creatPointView()
+            }
+        }
+        get {
+            return self.localIsSquare
+        }
+    }
+
     var currentWidthMultiple: CGFloat {
         set {
             if localCurrentWidthMultiple != newValue {
@@ -228,7 +242,7 @@ class WEIPageControl: UIControl {
                 currentPointView.frame = CGRect.init(x: startX, y: startY, width: currentPointViewWidth, height: localPointSize.height)
                 currentPointView.backgroundColor = localCurrentColor
                 currentPointView.tag = index + 1000
-                currentPointView.layer.cornerRadius = localPointSize.height / 2
+                currentPointView.layer.cornerRadius = localIsSquare ? 0 : localPointSize.height / 2
                 currentPointView.layer.masksToBounds = true
                 currentPointView.layer.borderColor = localCurrentBorderColor != nil ? localCurrentBorderColor?.cgColor : localCurrentColor.cgColor
                 currentPointView.layer.borderWidth = localCurrentBorderWidth != nil ? localCurrentBorderWidth! : 0
@@ -251,7 +265,7 @@ class WEIPageControl: UIControl {
                 otherPointView.frame = CGRect.init(x: startX, y: startY, width: localPointSize.width, height: localPointSize.height)
                 otherPointView.backgroundColor = localOtherColor
                 otherPointView.tag = index + 1000
-                otherPointView.layer.cornerRadius = localPointSize.height / 2;
+                otherPointView.layer.cornerRadius = localIsSquare ? 0 : localPointSize.height / 2;
                 otherPointView.layer.borderColor = localOtherBorderColor != nil ? localOtherBorderColor?.cgColor : localOtherColor.cgColor
                 otherPointView.layer.borderWidth = localOtherBorderWidth != nil ? localOtherBorderWidth! : 0
                 otherPointView.layer.masksToBounds = true
