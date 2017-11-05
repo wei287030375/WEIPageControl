@@ -12,7 +12,7 @@
 
 效果图：
 
-![image](https://github.com/wei287030375/WEIPageControl/blob/master/WEIPageControl/weican.PNG)
+![image](https://github.com/wei287030375/WEIPageControl/blob/master/pageControl.gif)
 
 
 以下是部分代码：
@@ -47,7 +47,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         pageControl3.frame = CGRect.init(x: left, y: scrollView3.frame.maxY, width: width, height: 20)
         pageControl3.numberOfPages = pageCount//总页数
         pageControl3.isSquare = true//设置为方型点
-        pageControl3.currentWidthMultiple = 2.5//当前点的宽度为其他点的3倍
+        pageControl3.currentWidthMultiple = 2.5//当前点的宽度为其他点的2.5倍
         pageControl3.currentColor = UIColor.red
         pageControl3.otherColor = UIColor.blue
         pageControl3.pointSize = CGSize.init(width: 14, height: 6)//方点的size
